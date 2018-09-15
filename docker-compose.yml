@@ -1,0 +1,26 @@
+version: "3.3"
+
+services:
+  database:
+    image: ronaldvanderrest/mydb
+    networks:
+      - backend
+
+  api:
+    image: ronaldvanderrest/api
+    networks:
+      - frontend
+      - backend
+
+  ui: 
+    image: ronaldvanderrest/ui
+    networks:
+      - frontend
+    ports:
+      - "3000:3000"
+
+networks:
+  frontend:
+  backend:
+
+
